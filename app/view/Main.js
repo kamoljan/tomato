@@ -3,8 +3,8 @@ Ext.define('ShopAfter.view.Main', {
     xtype: "main",
 
     requires: [
-        'ShopAfter.view.MovieSearch',
-        'ShopAfter.view.MoviesListView',
+        'ShopAfter.view.AdSearch',
+        'ShopAfter.view.AdsListView',
         'ShopAfter.view.ad.InsertAdForm'
     ],
 
@@ -16,7 +16,7 @@ Ext.define('ShopAfter.view.Main', {
             {
                 title: 'Latest Ads',
                 menu: "opening",
-                xtype: 'movieslistview',
+                xtype: 'adslistview',
                 autoLoad: true,
                 proxy: {
                     service: "ad/"
@@ -25,7 +25,7 @@ Ext.define('ShopAfter.view.Main', {
             {
                 title: 'Nearest Ads',
                 menu: "theatres",
-                xtype: 'movieslistview',
+                xtype: 'adslistview',
                 enablePaging: true,
                 proxy: {
                     service: "ad/"
@@ -34,14 +34,14 @@ Ext.define('ShopAfter.view.Main', {
             {
                 title: 'Latest Ads',
                 menu: "upcoming",
-                xtype: 'movieslistview',
+                xtype: 'adslistview',
                 proxy: {
                     service: "ad/"
                 }
             },
             {
                 menu: "search",
-                xtype: 'moviesearch'
+                xtype: 'adsearch'
             },
             {
 //                title: 'Sell it!',

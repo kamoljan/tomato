@@ -1,6 +1,6 @@
-Ext.define('ShopAfter.view.MovieDetails', {
+Ext.define('ShopAfter.view.AdDetails', {
     extend: 'Ext.Container',
-    xtype: "moviedetails",
+    xtype: "addetails",
 
     requires: [],
 
@@ -8,7 +8,7 @@ Ext.define('ShopAfter.view.MovieDetails', {
         fullscreen: true,
         tabBarPosition: "bottom",
         ui: 'light',
-        cls: " moviedetails",
+        cls: " addetails",
         record: null,
         layout: "vbox",
         hidden: true,

@@ -1,6 +1,6 @@
-Ext.define('ShopAfter.view.MovieSearch', {
-    extend: 'ShopAfter.view.MoviesListView',
-    xtype: 'moviesearch',
+Ext.define('ShopAfter.view.AdSearch', {
+    extend: 'ShopAfter.view.AdsListView',
+    xtype: 'adsearch',
     requires: [
         'Ext.Toolbar', 'Ext.field.Text', 'Ext.field.Search', 'Ext.dataview.List',
         'Ext.form.Panel', 'Ext.plugin.ListPaging',
@@ -8,7 +8,7 @@ Ext.define('ShopAfter.view.MovieSearch', {
     config: {
         enablePaging: true,
         autoLoad: false,
-        cls: "moviesearch",
+        cls: "adsearch",
         header: [
             {
                 iconCls: "list",
@@ -21,7 +21,7 @@ Ext.define('ShopAfter.view.MovieSearch', {
                 items: [
                     {
                         xtype: 'searchfield',
-                        placeHolder: 'Movie Search..'
+                        placeHolder: 'Ad Search..'
                     }
                 ]
             }

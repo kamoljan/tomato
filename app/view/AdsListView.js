@@ -1,6 +1,6 @@
-Ext.define('ShopAfter.view.MoviesListView', {
+Ext.define('ShopAfter.view.AdsListView', {
     extend: 'Ext.Container',
-    xtype: 'movieslistview',
+    xtype: 'adslistview',
     requires: [
         'Ext.dataview.DataView',
         'Ext.dataview.List',
@@ -56,7 +56,7 @@ Ext.define('ShopAfter.view.MoviesListView', {
         if (!this._list) {
             this._list = Ext.create("Ext.dataview.List", {
                 flex: 1,
-                emptyText: 'No movies found.',
+                emptyText: 'No ads found.',
                 loadingText: "Loading Ads",
                 cls: 'grid',
                 plugins: this.getEnablePaging() ? {
@@ -87,7 +87,7 @@ Ext.define('ShopAfter.view.MoviesListView', {
     getItemTemplate: function() {
         if (!this._itemTemplate) {
             this._itemTemplate = new Ext.XTemplate(
-                '<div class="movie">',
+                '<div class="ad">',
                 '<div class="title">{description}</div>',
                 '<div class="img" style="background-image: url(\'{image}\')"></div>',
                 '<div class="ratings">',

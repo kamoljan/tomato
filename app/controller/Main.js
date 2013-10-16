@@ -1,15 +1,15 @@
 Ext.define('ShopAfter.controller.Main', {
     extend: 'Ext.app.Controller',
     requires: [
-        "ShopAfter.view.MovieDetails",
+        "ShopAfter.view.AdDetails",
         "Ext.util.InputBlocker"
     ],
 
     config: {
         refs: {
             main: 'main',
-            moviesList: 'moviesearch > list',
-            searchField: 'moviesearch > toolbar > formpanel > searchfield'
+            adsList: 'adsearch > list',
+            searchField: 'adsearch > toolbar > formpanel > searchfield'
         },
 
         control: {
@@ -17,7 +17,7 @@ Ext.define('ShopAfter.controller.Main', {
                 action: 'onSearch'
             },
 
-            'movieslistview > toolbar > button': {
+            'adslistview > toolbar > button': {
                 tap: function () {
                     Ext.Viewport.toggleMenu("left");
                 }
@@ -37,7 +37,7 @@ Ext.define('ShopAfter.controller.Main', {
                     if (btn.getMenu() === 'insert') {
                         var newActiveItem = Ext.ComponentQuery.query("insertadform");
                     } else {
-                        var newActiveItem = Ext.ComponentQuery.query("movieslistview[menu=" + btn.getMenu() + "]");
+                        var newActiveItem = Ext.ComponentQuery.query("adslistview[menu=" + btn.getMenu() + "]");
                     }
                     console.log('controller.Main newActiveItem = %s', newActiveItem);
                     var main = this.getMain();
@@ -63,30 +63,30 @@ Ext.define('ShopAfter.controller.Main', {
                     }
                 }
             },
-            'moviedetails': {
-                swipe: function (moviedetails, e) {
+            'addetails': {
+                swipe: function (addetails, e) {
                     var target = Ext.fly(e.target);
                     if (target.findParent('.x-scroll-container', 10, true)) return;
                     if (e.direction === "up") {
-                        moviedetails.hide();
+                        addetails.hide();
                     }
                 }
             },
-            'moviedetails > button[action="close"]': {
+            'addetails > button[action="close"]': {
                 tap: function (button) {
-                    var details = button.up("moviedetails");
+                    var details = button.up("addetails");
                     details.hide();
                     Ext.util.InputBlocker.unblockInputs();
                 }
             },
-            'movieslistview > list': {
+            'adslistview > list': {
                 itemtap: function (list, index, item, record, event) {
-                    this._movieDetails = this.getMovieDetails();
-                    this._movieDetails.setRecord(record);
-                    Ext.Viewport.add(this._movieDetails);
+                    this._adDetails = this.getAdDetails();
+                    this._adDetails.setRecord(record);
+                    Ext.Viewport.add(this._adDetails);
                     Ext.util.InputBlocker.blockInputs();
 
-                    this._movieDetails.on({
+                    this._adDetails.on({
                         show: {
                             fn: function () {
                                 list.deselectAll(true);
@@ -96,7 +96,7 @@ Ext.define('ShopAfter.controller.Main', {
                         }
                     });
 
-                    this._movieDetails.show();
+                    this._adDetails.show();
                 }
             }
         }
@@ -112,20 +112,20 @@ Ext.define('ShopAfter.controller.Main', {
         console.log('controller.Main doSearch');
         search = search.replace(/^\s+|\s+$/g, '');
         if (search.length <= 0) return;
-        var moviesList = this.getMoviesList(),
-            moviesStore = moviesList.getStore();
-        moviesStore.currentPage = 1;
-        moviesStore.filter('query', search);
+        var adsList = this.getAdsList(),
+            adsStore = adsList.getStore();
+        adsStore.currentPage = 1;
+        adsStore.filter('query', search);
 
-        moviesList.setScrollToTopOnRefresh(true);
-        moviesStore.load();
+        adsList.setScrollToTopOnRefresh(true);
+        adsStore.load();
     },
 
-    getMovieDetails: function () {
-        console.log('controller.Main getMovieDetails');
-        if (!this._movieDetails) {
-            this._movieDetails = Ext.create("ShopAfter.view.MovieDetails");
+    getAdDetails: function () {
+        console.log('controller.Main getAdDetails');
+        if (!this._adDetails) {
+            this._adDetails = Ext.create("ShopAfter.view.AdDetails");
         }
-        return this._movieDetails;
+        return this._adDetails;
     }
 });

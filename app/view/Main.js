@@ -4,7 +4,8 @@ Ext.define('ShopAfter.view.Main', {
 
     requires: [
         'ShopAfter.view.MovieSearch',
-        'ShopAfter.view.MoviesListView'
+        'ShopAfter.view.MoviesListView',
+        'ShopAfter.view.ad.InsertAdForm'
     ],
 
     config: {
@@ -39,16 +40,13 @@ Ext.define('ShopAfter.view.Main', {
                 }
             },
             {
-                title: 'Sell it!',
-                menu: "top",
-                xtype: 'movieslistview',
-                proxy: {
-                    service: "ad/"
-                }
-            },
-            {
                 menu: "search",
                 xtype: 'moviesearch'
+            },
+            {
+//                title: 'Sell it!',
+                menu: "insert",
+                xtype: 'insertadform'
             }
         ]
     }

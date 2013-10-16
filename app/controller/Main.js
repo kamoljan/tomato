@@ -1,6 +1,9 @@
 Ext.define('ShopAfter.controller.Main', {
     extend: 'Ext.app.Controller',
-    requires: ["ShopAfter.view.MovieDetails", "Ext.util.InputBlocker"],
+    requires: [
+        "ShopAfter.view.MovieDetails",
+        "Ext.util.InputBlocker"
+    ],
 
     config: {
         refs: {
@@ -20,10 +23,27 @@ Ext.define('ShopAfter.controller.Main', {
                 }
             },
 
+            'insertadform > toolbar > button': {
+                tap: function () {
+                    Ext.Viewport.toggleMenu("left");
+                }
+            },
+
             'menu > button': {
                 tap: function (btn) {
-                    var newActiveItem = Ext.ComponentQuery.query("movieslistview[menu=" + btn.getMenu() + "]"),
-                        main = this.getMain();
+                    console.log('controller.Main menu > button');
+                    console.log('controller.Main btn = %s', btn);
+
+                    if (btn.getMenu() === 'insert') {
+                        var newActiveItem = Ext.ComponentQuery.query("insertadform");
+                    } else {
+                        var newActiveItem = Ext.ComponentQuery.query("movieslistview[menu=" + btn.getMenu() + "]");
+                    }
+                    console.log('controller.Main newActiveItem = %s', newActiveItem);
+                    var main = this.getMain();
+
+                    console.log('controller.Main btn.getMenu() = ' + btn.getMenu());
+                    console.log('controller.Main this.getMain() = ' + this.getMain());
 
                     newActiveItem = newActiveItem.length > 0 ? newActiveItem[0] : null;
                     if (newActiveItem) {

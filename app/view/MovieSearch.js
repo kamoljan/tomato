@@ -4,7 +4,7 @@ Ext.define('ShopAfter.view.MovieSearch', {
     requires: [
         'Ext.Toolbar', 'Ext.field.Text', 'Ext.field.Search', 'Ext.dataview.List',
         'Ext.form.Panel', 'Ext.plugin.ListPaging',
-        'ShopAfter.proxy.RottenTomatoes', 'ShopAfter.model.Movie'],
+        'ShopAfter.proxy.RottenTomatoes', 'ShopAfter.model.Ad'],
     config: {
         enablePaging: true,
         autoLoad: false,
@@ -27,13 +27,13 @@ Ext.define('ShopAfter.view.MovieSearch', {
             }
         ]
     },
-    getStore: function() {
+    getStore: function () {
         if (!this._store) {
             this.callParent();
             this._store.setRemoteFilter(true);
 
             //Intercept the load function and short circuit it when there is no query
-            this._store.load = Ext.Function.createInterceptor(this._store.load, function() {
+            this._store.load = Ext.Function.createInterceptor(this._store.load, function () {
                 var filters = this.getFilters(),
                     len = filters.length,
                     filter;

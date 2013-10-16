@@ -4,7 +4,9 @@ Ext.define('ShopAfter.view.MoviesListView', {
     requires: [
         'Ext.dataview.DataView',
         'Ext.dataview.List',
-        'ShopAfter.proxy.RottenTomatoes', 'ShopAfter.model.Movie'],
+        'ShopAfter.proxy.RottenTomatoes',
+        'ShopAfter.model.Ad'
+    ],
     config: {
         layout: "vbox",
         title: null,
@@ -35,7 +37,6 @@ Ext.define('ShopAfter.view.MoviesListView', {
         this.down("list").getStore().load();
     },
 
-
     getHeaderBar: function() {
         if (!this._headerBar) {
             this._headerBar = Ext.create("Ext.Toolbar", {
@@ -56,7 +57,7 @@ Ext.define('ShopAfter.view.MoviesListView', {
             this._list = Ext.create("Ext.dataview.List", {
                 flex: 1,
                 emptyText: 'No movies found.',
-                loadingText: "Loading Movies",
+                loadingText: "Loading Ads",
                 cls: 'grid',
                 plugins: this.getEnablePaging() ? {
                     xclass: 'Ext.plugin.ListPaging',
@@ -73,7 +74,7 @@ Ext.define('ShopAfter.view.MoviesListView', {
     getStore: function() {
         if (!this._store) {
             this._store = Ext.create("Ext.data.Store", {
-                model: "ShopAfter.model.Movie",
+                model: "ShopAfter.model.Ad",
                 autoLoad: this.getAutoLoad() === true,
                 remoteFilter: true,
                 pageSize: 20,

@@ -6,18 +6,25 @@ Ext.Loader.setPath({
 
 Ext.application({
     name: 'ShopAfter',
-
-    requires: ['Ext.device.Storage','Ext.Menu', 'ShopAfter.components.MenuButton'],
-    controllers: ['ShopAfter.controller.Main'],
-    views: ['ShopAfter.view.Main', 'ShopAfter.view.WelcomeOverlay'],
-
-    launch: function() {
+    requires: [
+        'Ext.device.Storage',
+        'Ext.Menu',
+        'ShopAfter.components.MenuButton'
+    ],
+    controllers: [
+        'ShopAfter.controller.Main',
+        'ShopAfter.controller.InsertAdForm'
+    ],
+    views: [
+        'ShopAfter.view.Main',
+        'ShopAfter.view.WelcomeOverlay'
+    ],
+    launch: function () {
         Ext.getBody().removeCls('loading');
         Ext.create('ShopAfter.view.Main');
 
         if (Ext.device.Storage.getItem('isFirstTime') !== "false") {
             Ext.device.Storage.setItem('isFirstTime', false);
-
             var overlay = Ext.create('ShopAfter.view.WelcomeOverlay');
             Ext.Viewport.add(overlay);
             overlay.show();
@@ -33,7 +40,7 @@ Ext.application({
                 {
                     text: 'Latest',
                     iconCls: 'time',
-                    menu:"opening"
+                    menu: "opening"
                 },
                 {
                     text: 'Nearest',
@@ -43,7 +50,7 @@ Ext.application({
                 {
                     text: 'Popular',
                     iconCls: 'team',
-                    menu:"upcoming"
+                    menu: "upcoming"
                 },
 //                {
 //                    text: 'Top',
@@ -53,12 +60,12 @@ Ext.application({
                 {
                     text: 'Search',
                     iconCls: 'search',
-                    menu:"search"
+                    menu: "search"
                 },
                 {
                     text: 'Post Ad',
                     iconCls: 'add',
-                    menu:"top"
+                    menu: "insert"
                 }
             ]
         });

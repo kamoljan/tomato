@@ -1,4 +1,4 @@
-Ext.define('TouchTomatoes.model.Movie', {
+Ext.define('ShopAfter.model.Movie', {
     extend: 'Ext.data.Model',
 
     config: {

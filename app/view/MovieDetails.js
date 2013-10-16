@@ -1,4 +1,4 @@
-Ext.define('TouchTomatoes.view.MovieDetails', {
+Ext.define('ShopAfter.view.MovieDetails', {
     extend: 'Ext.Container',
     xtype: "moviedetails",
 
@@ -82,11 +82,12 @@ Ext.define('TouchTomatoes.view.MovieDetails', {
                 '<div class="title">{description}</div>',
                 '<div class="img" style="background-image: url({image})"></div>',
                 '<div class="info">',
-                '<div class="rating">Rated: {mpaa_rating}</div>',
+                '<div class="fbProfilePic"><img src="https://graph.facebook.com/{profileId}/picture?type=square" /></div>',
+                '<div class="rating">{description}</div>',
                 '<div class="spacer"></div>',
                 '<div class="vbox">',
-                '<div class="year">Year: {year}</div>',
-                '<div class="runtime">Runtime {runtime} minutes</div>',
+                '<div class="year">price: {price}</div>',
+                '<p>Phone number: <a href="tel:+{phone}">{phone}</a></p>',
                 '</div>',
                 '</div>',
                 '<tpl if="abridged_cast.length &gt; 0">',

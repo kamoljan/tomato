@@ -5,20 +5,20 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
-    name: 'TouchTomatoes',
+    name: 'ShopAfter',
 
-    requires: ['Ext.device.Storage','Ext.Menu', 'TouchTomatoes.components.MenuButton'],
-    controllers: ['TouchTomatoes.controller.Main'],
-    views: ['TouchTomatoes.view.Main', 'TouchTomatoes.view.WelcomeOverlay'],
+    requires: ['Ext.device.Storage','Ext.Menu', 'ShopAfter.components.MenuButton'],
+    controllers: ['ShopAfter.controller.Main'],
+    views: ['ShopAfter.view.Main', 'ShopAfter.view.WelcomeOverlay'],
 
     launch: function() {
         Ext.getBody().removeCls('loading');
-        Ext.create('TouchTomatoes.view.Main');
+        Ext.create('ShopAfter.view.Main');
 
         if (Ext.device.Storage.getItem('isFirstTime') !== "false") {
             Ext.device.Storage.setItem('isFirstTime', false);
 
-            var overlay = Ext.create('TouchTomatoes.view.WelcomeOverlay');
+            var overlay = Ext.create('ShopAfter.view.WelcomeOverlay');
             Ext.Viewport.add(overlay);
             overlay.show();
         }
@@ -31,29 +31,34 @@ Ext.application({
             scrollable: 'vertical',
             items: [
                 {
-                    text: 'Opening',
+                    text: 'Latest',
                     iconCls: 'time',
                     menu:"opening"
                 },
                 {
-                    text: 'Theatres',
+                    text: 'Nearest',
                     iconCls: 'locate',
                     menu: "theatres"
                 },
                 {
-                    text: 'Upcoming',
+                    text: 'Popular',
                     iconCls: 'team',
                     menu:"upcoming"
                 },
-                {
-                    text: 'Top',
-                    iconCls: 'bank',
-                    menu:'top'
-                },
+//                {
+//                    text: 'Top',
+//                    iconCls: 'bank',
+//                    menu:'top'
+//                },
                 {
                     text: 'Search',
                     iconCls: 'search',
                     menu:"search"
+                },
+                {
+                    text: 'Post Ad',
+                    iconCls: 'add',
+                    menu:"top"
                 }
             ]
         });

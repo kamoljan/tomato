@@ -1,6 +1,6 @@
-Ext.define('TouchTomatoes.controller.Main', {
+Ext.define('ShopAfter.controller.Main', {
     extend: 'Ext.app.Controller',
-    requires: ["TouchTomatoes.view.MovieDetails", "Ext.util.InputBlocker"],
+    requires: ["ShopAfter.view.MovieDetails", "Ext.util.InputBlocker"],
 
     config: {
         refs: {
@@ -104,7 +104,7 @@ Ext.define('TouchTomatoes.controller.Main', {
     getMovieDetails: function () {
         console.log('controller.Main getMovieDetails');
         if (!this._movieDetails) {
-            this._movieDetails = Ext.create("TouchTomatoes.view.MovieDetails");
+            this._movieDetails = Ext.create("ShopAfter.view.MovieDetails");
         }
         return this._movieDetails;
     }

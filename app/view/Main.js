@@ -1,10 +1,10 @@
-Ext.define('TouchTomatoes.view.Main', {
+Ext.define('ShopAfter.view.Main', {
     extend: 'Ext.Panel',
     xtype: "main",
 
     requires: [
-        'TouchTomatoes.view.MovieSearch',
-        'TouchTomatoes.view.MoviesListView'
+        'ShopAfter.view.MovieSearch',
+        'ShopAfter.view.MoviesListView'
     ],
 
     config: {
@@ -13,7 +13,7 @@ Ext.define('TouchTomatoes.view.Main', {
         ui: 'light',
         items: [
             {
-                title: 'Opening Movies',
+                title: 'Latest Ads',
                 menu: "opening",
                 xtype: 'movieslistview',
                 autoLoad: true,
@@ -22,7 +22,7 @@ Ext.define('TouchTomatoes.view.Main', {
                 }
             },
             {
-                title: 'In Theatres Now',
+                title: 'Nearest Ads',
                 menu: "theatres",
                 xtype: 'movieslistview',
                 enablePaging: true,
@@ -31,7 +31,7 @@ Ext.define('TouchTomatoes.view.Main', {
                 }
             },
             {
-                title: 'Upcoming Movies',
+                title: 'Latest Ads',
                 menu: "upcoming",
                 xtype: 'movieslistview',
                 proxy: {
@@ -39,7 +39,7 @@ Ext.define('TouchTomatoes.view.Main', {
                 }
             },
             {
-                title: 'Top Box Office',
+                title: 'Sell it!',
                 menu: "top",
                 xtype: 'movieslistview',
                 proxy: {

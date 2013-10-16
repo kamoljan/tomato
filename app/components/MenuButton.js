@@ -1,4 +1,4 @@
-Ext.define("TouchTomatoes.components.MenuButton", {
+Ext.define("ShopAfter.components.MenuButton", {
     extend: "Ext.Button",
     xtype:"menubutton",
     config: {

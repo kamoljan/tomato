@@ -1,4 +1,4 @@
-Ext.define('TouchTomatoes.proxy.RottenTomatoes', {
+Ext.define('ShopAfter.proxy.RottenTomatoes', {
 //    extend: 'Ext.data.proxy.JsonP',
     extend: 'Ext.data.proxy.Ajax',
     alias: 'proxy.rottentomatoes',

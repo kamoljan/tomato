@@ -1,5 +1,5 @@
 {
-    "name": "TouchTomatoes",
+    "name": "ShopAfter",
     "js": [
         {
             "path": "../../sencha-touch-all-debug.js"

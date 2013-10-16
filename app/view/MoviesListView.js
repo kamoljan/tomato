@@ -1,10 +1,10 @@
-Ext.define('TouchTomatoes.view.MoviesListView', {
+Ext.define('ShopAfter.view.MoviesListView', {
     extend: 'Ext.Container',
     xtype: 'movieslistview',
     requires: [
         'Ext.dataview.DataView',
         'Ext.dataview.List',
-        'TouchTomatoes.proxy.RottenTomatoes', 'TouchTomatoes.model.Movie'],
+        'ShopAfter.proxy.RottenTomatoes', 'ShopAfter.model.Movie'],
     config: {
         layout: "vbox",
         title: null,
@@ -73,7 +73,7 @@ Ext.define('TouchTomatoes.view.MoviesListView', {
     getStore: function() {
         if (!this._store) {
             this._store = Ext.create("Ext.data.Store", {
-                model: "TouchTomatoes.model.Movie",
+                model: "ShopAfter.model.Movie",
                 autoLoad: this.getAutoLoad() === true,
                 remoteFilter: true,
                 pageSize: 20,
@@ -102,7 +102,7 @@ Ext.define('TouchTomatoes.view.MoviesListView', {
 
     applyProxy: function(config) {
         if (Ext.isSimpleObject(config)) {
-            return Ext.factory(config, 'TouchTomatoes.proxy.RottenTomatoes')
+            return Ext.factory(config, 'ShopAfter.proxy.RottenTomatoes')
         }
         return config;
     },

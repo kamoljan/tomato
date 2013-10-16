@@ -1,10 +1,10 @@
-Ext.define('TouchTomatoes.view.MovieSearch', {
-    extend: 'TouchTomatoes.view.MoviesListView',
+Ext.define('ShopAfter.view.MovieSearch', {
+    extend: 'ShopAfter.view.MoviesListView',
     xtype: 'moviesearch',
     requires: [
         'Ext.Toolbar', 'Ext.field.Text', 'Ext.field.Search', 'Ext.dataview.List',
         'Ext.form.Panel', 'Ext.plugin.ListPaging',
-        'TouchTomatoes.proxy.RottenTomatoes', 'TouchTomatoes.model.Movie'],
+        'ShopAfter.proxy.RottenTomatoes', 'ShopAfter.model.Movie'],
     config: {
         enablePaging: true,
         autoLoad: false,

@@ -1,4 +1,4 @@
-Ext.define('TouchTomatoes.view.WelcomeOverlay', {
+Ext.define('ShopAfter.view.WelcomeOverlay', {
     extend: 'Ext.Panel',
     xtype: "main",
 
@@ -6,8 +6,8 @@ Ext.define('TouchTomatoes.view.WelcomeOverlay', {
         cls: "welcomeOverlay",
         html: [
             "<div class='message'>",
-                "<h2>Welcome to <em>Touch Tomatoes</em></h2>",
-                "<p>Browse any of our lists by selecting a tab at the bottom, or swiping across the app. <br/>You can find a movie in our search section.</p>",
+                "<h2>Welcome to <em>Shoplifter</em></h2>",
+                "<p>Browse any of our lists by selecting a tab at the bottom, or swiping across the app.</p>",
                 "<div class='tap'>Tap anywhere to begin</div>",
             "</div>"
         ].join(""),
